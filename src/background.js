@@ -15,6 +15,6 @@
  */
 chrome.browserAction.onClicked.addListener(function(tab) {
   chrome.tabs.executeScript({
-    file: 'injected-mapper.js'
+    file: '/src/injected-mapper.js'
   });
 });
