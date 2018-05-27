@@ -1,6 +1,6 @@
 {
   "name": "Joyride",
-  "version": "1.2",
+  "version": "1.3",
   "description": "Map button presses from the Javascript Gamepad API to KeyboardEvents.",
   "permissions": [
     "activeTab"
