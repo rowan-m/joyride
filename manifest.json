@@ -1,28 +1,28 @@
 {
   "name": "Joyride",
   "version": "1.0",
-  "description": "Map gamepad events from a Nintento Switch Joy-Con to keyboard events to control Google Drive Slides",
+  "description": "Map button presses from the Javascript Gamepad API to KeyboardEvents. This lets you, for example, connect a Nintendo Switch Joy-Con and use it to control a Google Drive Slides presentation.",
   "permissions": [
     "activeTab"
   ],
   "background": {
-    "scripts": ["background.js"],
+    "scripts": ["/src/background.js"],
     "persistent": false
   },
   "browser_action": {
-    "default_title": "Map Joy-Con on this tab",
+    "default_title": "Map connected gamepads on this tab",
     "default_icon": {
-      "16": "joyride-icon.png",
-      "32": "joyride-icon.png",
-      "48": "joyride-icon.png",
-      "128": "joyride-icon.png"
+      "16": "/img/joyride-icon.png",
+      "32": "/img/joyride-icon.png",
+      "48": "/img/joyride-icon.png",
+      "128": "/img/joyride-icon.png"
     }
   },
   "icons": {
-    "16": "joyride-icon.png",
-    "32": "joyride-icon.png",
-    "48": "joyride-icon.png",
-    "128": "joyride-icon.png"
+    "16": "/img/joyride-icon.png",
+    "32": "/img/joyride-icon.png",
+    "48": "/img/joyride-icon.png",
+    "128": "/img/joyride-icon.png"
   },
   "manifest_version": 2
 }
