@@ -53,6 +53,10 @@
     'Joy-Con (R) (Vendor: 057e Product: 2007)': {
       0: 'arrowRight',
       3: 'arrowLeft'
+    },
+    'Joy-Con (L) (Vendor: 057e Product: 2006)': {
+      0: 'arrowLeft',
+      3: 'arrowRight'
     }
   };
   function addGamepad(gamepad) {
