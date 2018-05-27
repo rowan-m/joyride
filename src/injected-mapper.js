@@ -22,7 +22,6 @@
     window.addEventListener("gamepadconnected", e => { addGamepad(e.gamepad); });
     window.addEventListener("gamepaddisconnected", e => { removeGamepad(e.gamepad); });
   } else {
-    console.log('Setting interval');
     setInterval(scanGamepads, 500);
   }
 
