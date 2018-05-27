@@ -28,7 +28,33 @@
 
   const activeGamepads = {};
   const heldButtons = {};
+  const keyboardEvents = {
+    'arrowRight': {
+      'code': 'ArrowRight',
+      'key': 'ArrowRight',
+      'keyCode': 39,
+      'which': 39,
+      'bubbles': true,
+      'cancelable': true,
+      'composed': true,
+    },
+    'arrowLeft': {
+      'code': 'ArrowLeft',
+      'key': 'ArrowLeft',
+      'keyCode': 37,
+      'which': 37,
+      'bubbles': true,
+      'cancelable': true,
+      'composed': true,
+    }
+  };
 
+  const buttonMap = {
+    'Joy-Con (R) (Vendor: 057e Product: 2007)': {
+      0: 'arrowRight',
+      3: 'arrowLeft'
+    }
+  };
   function addGamepad(gamepad) {
     activeGamepads[gamepad.index] = gamepad;
     heldButtons[gamepad.index] = {};
@@ -51,11 +77,11 @@
       for (let bIdx = 0; bIdx < curGamepad.buttons.length; bIdx++) {
         const button = curGamepad.buttons[bIdx];
 
-        if (typeof(button) == "object") {
+        if (typeof(button) == 'object') {
           if (button.pressed) {
             if (!heldButtons[gIdx][bIdx]) {
               heldButtons[gIdx][bIdx] = true;
-              triggerMappedKey(bIdx);
+              triggerMappedKey(curGamepad.id, bIdx);
             }
           } else if(heldButtons[gIdx][bIdx]) {
             heldButtons[gIdx][bIdx] = false;
@@ -69,37 +95,19 @@
     }
   }
 
-  function triggerMappedKey(buttonId) {
-    const arrowRight = {
-      'code': 'ArrowRight',
-      'key': 'ArrowRight',
-      'keyCode': 39,
-      'which': 39,
-      'bubbles': true,
-      'cancelable': true,
-      'composed': true,
-    };
+  function triggerMappedKey(gamepadId, buttonId) {
+    if (buttonMap[gamepadId] && buttonMap[gamepadId][buttonId]) {
+      let target = document.activeElement;
     
-    const arrowLeft = {
-      'code': 'ArrowLeft',
-      'key': 'ArrowLeft',
-      'keyCode': 37,
-      'which': 37,
-      'bubbles': true,
-      'cancelable': true,
-      'composed': true,
-    };
-    
-    const keyEvent = new KeyboardEvent('keydown', (buttonId == 3 ? arrowRight : arrowLeft));
-    let target = document.activeElement;
-    
-    while (target.contentDocument) {
-      target = target.contentDocument.activeElement;
+      while (target.contentDocument) {
+        target = target.contentDocument.activeElement;
+      }
+
+      const keyboardEvent = new KeyboardEvent('keydown', keyboardEvents[ buttonMap[gamepadId][buttonId] ]);
+      target.dispatchEvent(keyboardEvent);
     }
-    
-    target.dispatchEvent(keyEvent);
   }
-  
+
   function scanGamepads() {
     const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
 
