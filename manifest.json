@@ -1,7 +1,7 @@
 {
   "name": "Joyride",
-  "version": "1.0",
-  "description": "Map button presses from the Javascript Gamepad API to KeyboardEvents. This lets you, for example, connect a Nintendo Switch Joy-Con and use it to control a Google Drive Slides presentation.",
+  "version": "1.1",
+  "description": "Map button presses from the Javascript Gamepad API to KeyboardEvents.",
   "permissions": [
     "activeTab"
   ],
