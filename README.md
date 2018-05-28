@@ -19,7 +19,7 @@ TODO: Add configuration for generic mapping of button presses to arbitrary keys.
 Head over to the ["Joyride" in the Chrome Web
 Store](https://chrome.google.com/webstore/detail/joyride/hejncbodigbbhdfhkapkfdhhjflafdff).
 ![Joyride screenshot - maps the joy-con to the current
-tab](img/joyride-screenshot.png)
+tab](joyride/img/joydrive-screenshot.png)
 
 ## Developer installation
 
