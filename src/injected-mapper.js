@@ -35,7 +35,7 @@
       'which': 39,
       'bubbles': true,
       'cancelable': true,
-      'composed': true,
+      'composed': true
     },
     'arrowLeft': {
       'code': 'ArrowLeft',
@@ -44,17 +44,39 @@
       'which': 37,
       'bubbles': true,
       'cancelable': true,
-      'composed': true,
+      'composed': true
+    },
+    'arrowDown': {
+      'code': 'ArrowDown',
+      'key': 'ArrowDown',
+      'keyCode': 38,
+      'which': 38,
+      'bubbles': true,
+      'cancelable': true,
+      'composed': true
+    },
+    'arrowUp': {
+      'code': 'ArrowUp',
+      'key': 'ArrowUp',
+      'keyCode': 40,
+      'which': 40,
+      'bubbles': true,
+      'cancelable': true,
+      'composed': true
     }
   };
 
   const buttonMap = {
     'Joy-Con (R) (Vendor: 057e Product: 2007)': {
       0: 'arrowRight',
+      1: 'arrowUp',
+      2: 'arrowDown',
       3: 'arrowLeft'
     },
     'Joy-Con (L) (Vendor: 057e Product: 2006)': {
       0: 'arrowLeft',
+      1: 'arrowUp',
+      2: 'arrowDown',
       3: 'arrowRight'
     }
   };
@@ -76,7 +98,7 @@
     for (let gIdx in activeGamepads) {
       var curGamepad = activeGamepads[gIdx];
       seenGamepad = true;
-      
+
       for (let bIdx = 0; bIdx < curGamepad.buttons.length; bIdx++) {
         const button = curGamepad.buttons[bIdx];
 
@@ -101,7 +123,7 @@
   function triggerMappedKey(gamepadId, buttonId) {
     if (buttonMap[gamepadId] && buttonMap[gamepadId][buttonId]) {
       let target = document.activeElement;
-    
+
       while (target.contentDocument) {
         target = target.contentDocument.activeElement;
       }
